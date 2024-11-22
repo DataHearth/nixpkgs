@@ -2610,6 +2610,14 @@ in
     nvimRequireCheck = "todo-comments";
   };
 
+  triptych-nvim = super.triptych-nvim.overrideAttrs {
+    dependencies = [
+      self.plenary-nvim
+      self.nvim-web-devicons
+      self.nvim-lsp-file-operations
+    ];
+  };
+
   tssorter-nvim = super.tssorter-nvim.overrideAttrs {
     dependencies = with self; [ nvim-treesitter ];
     nvimRequireCheck = "tssorter";
